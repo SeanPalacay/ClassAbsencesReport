@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Teacher Dashboard</h1>
+        
+        <div class="dashboard-section" id="currentMeetingSection">
+            <h2>Current Meeting</h2>
+            <div id="meetingStatus" class="meeting-status"></div>
+            <div id="currentMeetingControls" style="display:none;">
+                <h3>Current Meeting: <span id="currentMeetingTitle"></span></h3>
+                <button id="endMeetingBtn" onclick="endMeeting()">End Meeting</button>
+                <h4>Attendance</h4>
+                <ul id="attendanceList"></ul>
+            </div>
+        </div>
+
+        <div class="dashboard-section" id="scheduleMeetingSection">
+            <h2>Schedule a New Meeting</h2>
+            <form id="meetingForm">
+                <input type="hidden" id="meetingId">
+                <input type="text" id="meetingTitle" placeholder="Meeting Title" required>
+                <input type="datetime-local" id="meetingTime" required>
+                <input type="url" id="meetLink" placeholder="Google Meet Link" required>
+                <button type="submit" id="submitBtn">Schedule Meeting</button>
+                <button type="button" id="cancelBtn" style="display:none;">Cancel Edit</button>
+            </form>
+        </div>
+
+        <div class="dashboard-section" id="scheduledMeetingsSection">
+            <h2>Scheduled Meetings</h2>
+            <ul id="meetingsList"></ul>
+        </div>
+
+        <div class="dashboard-section" id="reportSection">
+            <h2>Generate Report</h2>
+            <input type="date" id="reportDate">
+            <button onclick="generateReport()">Generate Report</button>
+            <div id="reportArea"></div>
+        </div>
+    </div>
+    <script src="teacher.js"></script>
+</body>
+</html>
